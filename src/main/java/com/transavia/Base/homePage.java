@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
 import org.testng.Reporter;
 
 import java.util.List;
@@ -143,7 +144,7 @@ public class homePage {
 return txt;
     }
 
-    public void bookFlight(String fromCountry, String toCountry) throws InterruptedException {
+    public int bookFlight(String fromCountry, String toCountry) throws InterruptedException {
         int numberofflights;
         try {
             fromDeparture.click();
@@ -168,8 +169,9 @@ return txt;
             Thread.sleep(10000);
             //flightsCount.size();
         } catch (Exception e) {
+            Assert.fail();
             Reporter.log(e.getMessage());
         }
-
+ return flightsCount.size();
     }
 }
