@@ -12,8 +12,8 @@ public void bookFlight() throws InterruptedException {
     try {
         chooseDepDate=String.valueOf(depDate);
         ChooseRetDate=String.valueOf(retDate);
-         home.bookFlight("Lyon, France", "Agadir, Morocco");
-
+        int count= home.bookFlight("Lyon, France", "Agadir, Morocco");
+        Assert.assertTrue(count>=1);
 
     } catch (Throwable t) {
         driver.close();
